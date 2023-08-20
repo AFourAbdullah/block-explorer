@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
+import { FaEthereum } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import addressLogo from "../assets/imagaa.png";
 import "./details.css";
@@ -63,11 +64,14 @@ const SearchDetails = () => {
         <h3>Overview</h3>
         <div className="cardDiv">
           <h3>ETH BALANCE</h3>
-          <h5>{searchResult && searchResult.balance}</h5>
+          <h5>
+            <FaEthereum />
+            {searchResult && searchResult.balance}
+          </h5>
         </div>
         <div className="cardDiv">
           <h3>ETH VALUE</h3>
-          <h5>{searchResult && searchResult.balance * ethPrice}</h5>
+          <h5>${searchResult && searchResult.balance * ethPrice}</h5>
         </div>
       </div>
     </div>

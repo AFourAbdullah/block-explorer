@@ -1,13 +1,16 @@
 .SearchDetails {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: flex-start;
   margin-top: 30px;
+  background-color: #fafbfd;
+  height: 100vw;
 }
 .detailsAddress {
   display: flex;
   width: 100vw;
+  margin-bottom: 30px;
 }
 .detailsAddress img {
   height: 35px;
@@ -17,9 +20,41 @@
 }
 .card {
   width: 500px;
-  height: 300px;
-  background-color: aliceblue;
+  height: 260px;
+  background-color: white;
   flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  box-shadow: 0 0.5rem 1.2rem rgb(189 197 209 / 20%);
+  border-radius: 20px;
+  border: 0.6px solid rgb(174, 174, 174);
+  font-size: 0.9062rem;
+  margin-left: 30px;
+}
+.cardDiv {
+  /* height: 40%; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin-left: 20px;
+  width: 100%;
+}
+.card > h3 {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+.cardDiv h3 {
+  color: #6c757d;
+  margin-bottom: 7px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.cardDiv h5 {
+  color: black;
+  font-size: 0.85rem;
+  font-weight: 600;
 }

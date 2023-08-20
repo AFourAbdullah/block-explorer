@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* column-gap: 20px; */
+  width: 60%;
+  margin: 0 auto;
+  box-shadow: 0 0.5rem 1.2rem rgb(189 197 209 / 20%);
+  margin-top: -60px;
+  background-color: white;
+  height: 200px;
+}
+
+.container > div {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  /* border-radius: 8px; */
+  border-bottom: 1px solid green;
+  /* background-color: #f8f8f8; */
+}
+
+.container > div > svg {
+  font-size: 36px;
+  margin-right: 10px;
+}
+
+.frontDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.frontDetails h4 {
+  margin: 0;
+}

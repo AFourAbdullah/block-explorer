@@ -3,6 +3,7 @@ import { fetchEthPrice } from "../utils/getEthPrice";
 import { useEffect } from "react";
 import logo from "../assets/lgoo.png";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [ethPrice, setEthPrice] = useState(null);
@@ -15,7 +16,9 @@ const Header = () => {
 
   return (
     <div className="header">
-      <img src={logo} alt="" className="logo" />
+      <Link to="/">
+        <img src={logo} alt="" className="logo" />
+      </Link>
       <h5>
         ETH price: <span>${ethPrice}</span>
       </h5>

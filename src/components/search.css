@@ -10,7 +10,7 @@
 .searchBox {
   width: 50%;
   display: flex;
-  height: 40px;
+  height: 45px;
   position: relative;
   background-color: white;
   border-radius: 10px;
@@ -18,7 +18,7 @@
   align-items: center;
 }
 .searchBox input {
-  padding: 1vmax 4vmax;
+  padding: 1vmax 2vmax;
   padding-right: 1vmax;
   width: 100%;
   box-sizing: border-box;
