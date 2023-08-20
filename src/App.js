@@ -1,9 +1,12 @@
 import { Alchemy, Network } from "alchemy-sdk";
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
 import Header from "./components/Header";
-import Search from "./components/Search";
+
+import Home from "./components/Home";
+import SearchDetails from "./components/SearchDetails";
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
@@ -32,10 +35,20 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <Header />
-      <Search />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/address/:address">
+            <SearchDetails />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
