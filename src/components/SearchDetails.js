@@ -7,6 +7,8 @@ import "./details.css";
 import { fetchEthPrice } from "../utils/getEthPrice";
 const SearchDetails = () => {
   const [searchResult, setSearchResult] = useState(null);
+  const [transactionDetails, settransactionDetails] = useState(null);
+  const [blockDetails, setblockDetails] = useState(null);
   const { address } = useParams();
   const [ethPrice, setEthPrice] = useState(null);
 
@@ -19,13 +21,13 @@ const SearchDetails = () => {
       //   const query = searchQuery.trim();
 
       // Check if the query is a transaction hash
-      if (ethers.utils.isHexString(address, 32)) {
+      if (ethers.utils.isHexString(address, 64)) {
         const transaction = await provider.getTransaction(address);
-        setSearchResult(transaction);
+        settransactionDetails(transaction);
       } else if (ethers.utils.isHexString(address, 64)) {
         // Check if the query is a block hash
         const block = await provider.getBlock(address);
-        setSearchResult(block);
+        setblockDetails(block);
       } else if (ethers.utils.isAddress(address)) {
         // Check if the query is an Ethereum address
         const balance = await provider.getBalance(address);
@@ -56,24 +58,32 @@ const SearchDetails = () => {
   }, [searchResult]);
   return (
     <div className="SearchDetails">
-      <div className="detailsAddress">
-        <img src={addressLogo} alt="" />
-        <h2>Address : {address}</h2>
-      </div>
-      <div className="card">
-        <h3>Overview</h3>
-        <div className="cardDiv">
-          <h3>ETH BALANCE</h3>
-          <h5>
-            <FaEthereum />
-            {searchResult && searchResult.balance}
-          </h5>
-        </div>
-        <div className="cardDiv">
-          <h3>ETH VALUE</h3>
-          <h5>${searchResult && searchResult.balance * ethPrice}</h5>
-        </div>
-      </div>
+      {searchResult ? (
+        <>
+          <div className="detailsAddress">
+            <img src={addressLogo} alt="" />
+            <h2>Address : {address}</h2>
+          </div>
+          <div className="card">
+            <h3>Overview</h3>
+            <div className="cardDiv">
+              <h3>ETH BALANCE</h3>
+              <h5>
+                <FaEthereum />
+                {searchResult && searchResult.balance}
+              </h5>
+            </div>
+            <div className="cardDiv">
+              <h3>ETH VALUE</h3>
+              <h5>${searchResult && searchResult.balance * ethPrice}</h5>
+            </div>
+          </div>
+        </>
+      ) : transactionDetails ? (
+        <div classname="transaction"></div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

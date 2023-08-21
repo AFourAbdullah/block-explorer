@@ -18,3 +18,7 @@ h5 {
 h5 span {
   color: rgb(6, 86, 172);
 }
+@media (max-width: 700px) {
+  /* .header {
+    /* justify-content: space-around; */
+}

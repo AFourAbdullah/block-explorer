@@ -84,7 +84,7 @@ const Container = () => {
       heading: "LATEST TRANSACTION",
       value: (
         <Link to={`/address/${lastTransaction}`}>
-          {lastTransaction.substring(0, 14)}..
+          {lastTransaction ? lastTransaction.substring(0, 14) : ""}..
         </Link>
       ),
     },
