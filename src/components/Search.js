@@ -21,7 +21,7 @@ const Search = () => {
       <div className="searchBox">
         <input
           type="text"
-          placeholder="search by address,Txn hash,block "
+          placeholder="search by address,Txn hash "
           onChange={(e) => setSearchQuery(e.target.value)}
           value={searchQuery}
         />
